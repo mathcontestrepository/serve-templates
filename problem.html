@@ -46,8 +46,9 @@
           <h4>This problem is tagged with {% for i in range(tags|length) %} <a href="/problems/search/tags/submit?term={{tags[i]}}">{{tags[i]}}</a>{% if i != (tags|length)-1 %}, {%endif%}{%endfor%}.</h4>
 {% endif %}
 	  </div>
-          <p>{{problem.body}}
-	  </p>
+		{% autoescape false %}
+          <p>{{problem.body}}</p>
+		  {%endautoescape%}
         </div>
         <div class="answer-form">
           <form action="/problem/{{problem.code}}/submit" method="post">
