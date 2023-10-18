@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Math Contest Repository - Publish Problem</title>
+  <!-- Link your CSS file here -->
+  <link rel="stylesheet" href="https://mathcontestrepository.github.io/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Biryani&display=swap" rel="stylesheet">
+<link rel="icon" href="https://mathcontestrepository.github.io/whitelogo.png">
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+</head>
+<body>
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$', '$']],
+        displayMath: [['$$', '$$']]
+      }
+    };
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3.2.1/es5/tex-chtml.js"></script>
+  <div class="container">
+    <header>
+      <img style="width:5em;filter:invert(100%)" src="https://mathcontestrepository.github.io/logo.png">
+    </header>
+
+    <nav>
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/problems">Problems</a></li>
+        <li><a href="/contests">Contests</a></li>
+	<li><a href="/users">Leaderboard</a></li>
+        <li><a href="/about">About</a></li>
+      </ul>
+    </nav>
+    <main>
+      <div class="registration-form">
+  <h3>Publish Problem</h3>
+  <form action="/publish-problem/submit" method="post">
+    <div class="form-group">
+      <label for="username">Title:</label>
+      <input type="text" id="username" name="username" placeholder="Enter the problem title" required>
+    </div>
+    <div class="form-group">
+      <label for="code">Problem Code (just a short code similar to the title to be displayed in the URL):</label>
+      <input type="text" id="code" name="code" placeholder="Enter the problem code" required>
+    </div>
+    <div class="form-group">
+      <label for="statement">Problem Text:</label>
+      <textarea style="font-family: Biryani" id="statement" name="statement">Write the problem text here...</textarea>
+    </div>
+<div class="form-group">
+      <label for="contcode">Contest Code (type in "None" if this is not for a live contest):</label>
+      <input type="text" id="contcode" name="contcode" placeholder="Enter the contest code" required>
+    </div>
+<div class="form-group">
+      <label for="difficulty">Difficulty from 1 to 50 (where 1-3 means middle school/simple grade 9 content and 50 means postgrad content):</label>
+      <input type="text" id="difficulty" name="difficulty" placeholder="Enter the problem difficulty" required>
+    </div>
+<div class="form-group">
+      <label for="ans">Answer (any piece of text is allowed as an 'intended answer'):</label>
+      <input type="text" id="ans" name="ans" placeholder="Enter the problem answer" required>
+    </div>
+<div class="form-group">
+      <label for="ans">Tags:</label>
+      <input type="text" id="tags" name="tags" placeholder="Enter the problem tags" required>
+    </div>
+    <button type="submit">Publish</button>
+  </form>
+</div>
+
+    </main>
+  </div>
+
+  <footer>
+    &copy; 2023 Math Contest Repository<br>
+    <a style="color: white" href="https://discord.gg/xv6ZEnVJaR">Join our Discord server!</a>
+  </footer>
+</body>
+</html>

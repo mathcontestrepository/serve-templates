@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Math Contest Repository - Sign Up</title>
+  <!-- Link your CSS file here -->
+  <link rel="stylesheet" href="https://mathcontestrepository.github.io/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Biryani&display=swap" rel="stylesheet">
+<link rel="icon" href="https://mathcontestrepository.github.io/whitelogo.png">
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+</head>
+<body>
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$', '$']],
+        displayMath: [['$$', '$$']]
+      }
+    };
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3.2.1/es5/tex-chtml.js"></script>
+  <div class="container">
+    <header>
+      <img style="width:5em;filter:invert(100%)" src="https://mathcontestrepository.github.io/logo.png">
+    </header>
+
+    <nav>
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/problems">Problems</a></li>
+        <li><a href="/contests">Contests</a></li>
+	<li><a href="/users">Leaderboard</a></li>
+        <li><a href="/about">About</a></li>
+      </ul>
+    </nav>
+    <main>
+      <div class="registration-form">
+  <h3>Sign Up</h3>
+  <form action="/register" method="post">
+    <div class="form-group">
+      <label for="username">Username:</label>
+      <input type="text" id="username" name="username" placeholder="Enter your username" required>
+    </div>
+    <div class="form-group">
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" placeholder="Enter your email" required>
+    </div>
+    <div class="form-group">
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password" placeholder="Enter your password" required>
+    </div>
+    <div class="form-group">
+      <label for="confirm-password">Confirm Password:</label>
+      <input type="password" id="confirm-password" name="confirm-password" placeholder="Confirm your password" required>
+    </div>
+    <button type="submit">Sign Up</button>
+    <p>By signing up, you agree to abide by our <a href="/legal/terms">Terms of Service</a> at all times and agree to our use of your data as outlined in our <a href="/legal/privacy">Privacy Policy</a>.</p>
+  </form>
+</div>
+
+    </main>
+  </div>
+
+  <footer>
+    &copy; 2023 Math Contest Repository<br>
+    <a style="color: white" href="https://discord.gg/xv6ZEnVJaR">Join our Discord server!</a>
+  </footer>
+</body>
+</html>
