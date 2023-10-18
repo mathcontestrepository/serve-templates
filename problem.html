@@ -42,6 +42,7 @@
 		{%if current_user.is_authenticated %}{% if current_user.admin == 1 or problem.uploader == current_user.username %}
 		<h4><a href="/edit-problem/{{problem.code}}">Edit Problem</a></h4>{%endif%}{%endif%}
 	  <div style="line-height:0.6">
+		  <h4>Difficulty: {{problem.points}}</h4>
 {% if tags|length > 0 %}
           <h4>This problem is tagged with {% for i in range(tags|length) %} <a href="/problems/search/tags/submit?term={{tags[i]}}">{{tags[i]}}</a>{% if i != (tags|length)-1 %}, {%endif%}{%endfor%}.</h4>
 {% endif %}
