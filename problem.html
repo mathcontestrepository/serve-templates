@@ -38,10 +38,12 @@
     <main>
       <div class="content">
         <div class="problem">
-          <h2>{% if problem.code in current_user.solved.split() %}<img style="width:1em" src="https://mathcontestrepository.github.io/solved.png"> {%endif%}{{problem.title}}</h2>
+          <h2>{% if current_user.is_authenticated %}{% if problem.code in current_user.solved.split() %}<img style="width:1em" src="https://mathcontestrepository.github.io/solved.png"> {%endif%} {% endif %}{{problem.title}}</h2>
+		{%if current_user.is_authenticated %}{% if current_user.admin == 1 or problem.uploader == current_user.username %}
+		<h4><a href="/edit-problem/{{problem.code}}">Edit Problem</a></h4>{%endif%}{%endif%}
 	  <div style="line-height:0.6">
 {% if tags|length > 0 %}
-          <h4>This problem is tagged with {% for i in range(tags|length) %} <a href="/set/{{tags[i]}}">{{tags[i]}}</a>{% if i != (tags|length)-1 %}, {%endif%}{%endfor%}.</h4>
+          <h4>This problem is tagged with {% for i in range(tags|length) %} <a href="/problems/search/tags/submit?term={{tags[i]}}">{{tags[i]}}</a>{% if i != (tags|length)-1 %}, {%endif%}{%endfor%}.</h4>
 {% endif %}
 	  </div>
           <p>{{problem.body}}
