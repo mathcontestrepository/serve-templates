@@ -52,11 +52,15 @@
 		  {%endautoescape%}
         </div>
         <div class="answer-form">
+		{% if current_user.is_authenticated %}
           <form action="/problem/{{problem.code}}/submit" method="post">
             <label for="ans">Your Answer:</label>
             <input type="text" id="ans" name="ans" placeholder="Enter your answer" required>
             <button type="submit">Check Answer</button>
           </form>
+		{% else %}
+		<p>Please <a href="/login">login</a> or <a href="/signup">sign up</a> to submit and check if your answer is correct.</p>
+		{% endif %}
         </div>
       </div>
     </main>
