@@ -44,8 +44,17 @@
 	  <div style="line-height:0.6">
 		  <h4>Uploaded by: {{contest.uploader}}</h4>
 		  <h4>Time Allowed: {{contest.time_allowed}} minutes</h4>
-		  <h4><a href="/contest/{{contest.code}}/leaderboard">Leaderboard</a></h4>
+		  <h4><a href="/contest/{{contest.code}}/leaderboard">Contest Leaderboard</a></h4>
 	  </div>
+		{% if current_user.is_authenticated %}
+		{% if current_user.curcontest == contest.code %}
+		<h3>Problems:</h3>
+		{% for i in problems %}
+		<p><a href="/problem/{{i.code}}" target="_blank">{{i.title}}</a></p>
+		{% endfor %}
+		{% endif %}
+		{% endif %}
+		
 		{% autoescape false %}
           <p>{{contest.about}}</p>
 		  {%endautoescape%}
