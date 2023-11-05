@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{title}} Leaderboard | Math Contest Repository</title>
+  <!-- Link your CSS file here -->
+  <link rel="stylesheet" href="https://mathcontestrepository.github.io/style.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Biryani&display=swap" rel="stylesheet">
+<link rel="icon" href="https://mathcontestrepository.github.io/whitelogo.png">
+</head>
+<body>
+<script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$', '$']],
+        displayMath: [['$$', '$$']]
+      }
+    };
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3.2.1/es5/tex-chtml.js"></script>
+  <div class="container">
+    <header>
+      <img style="width:5em;filter:invert(100%)" src="https://mathcontestrepository.github.io/logo.png">
+    </header>
+
+    <nav>
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/problems">Problems</a></li>
+        <li><a href="/contests">Contests</a></li>
+	<li><a href="/users">Leaderboard</a></li>
+        <li><a href="/about">About</a></li>
+      </ul>
+    </nav>
+
+    <main>
+      <div style="line-height: 0.8">
+      <h2>{{title}} Leaderboard</h2>
+</div>
+      <table class="contest-table">
+  <thead>
+    <tr>
+      <th>Rank</th>
+      <th>Username</th>
+      <th>Score</th>
+      <th>Current Rating</th>
+    </tr>
+  </thead>
+  <tbody>
+<script type="text/javascript">
+var a=0;
+</script>
+    {% for i in range(usernames) %}
+<script type="text/javascript">
+a++;
+</script>
+    <tr>
+      <td id = "{{usernames[i]}}"></td>
+      <td><a {% if ratings[i] != 0 %} style="color:  {% if ratings[i] > 0 and ratings[i] < 100 %} #9ca39b {% elif ratings[i] < 300 %} #2ec912 {% elif ratings[i] < 500 %} #1454b5 {% elif ratings[i] < 800 %} #c4bf16 {% elif ratings[i] < 1200 %} #c43616 {% elif ratings[i] >= 1200 %} #541203 {% endif %}" {% endif %} href="/user/{{usernames[i]}}">{{usernames[i]}}</a></td>
+      <td>{{scores[i]}}</td>
+      <td>{{ratings[i]}}</td>
+    </tr>
+<script type="text/javascript">
+document.getElementById("{{usernames[i]}}").innerHTML = "#"+a;
+</script>
+{% endfor %}
+  </tbody>
+</table>
+
+
+    </main>
+  </div>
+
+  <footer>
+    &copy; 2023 Math Contest Repository<br>
+    <a style="color: white" href="https://discord.gg/xv6ZEnVJaR">Join our Discord server!</a>
+  </footer>
+</body>
+</html>
