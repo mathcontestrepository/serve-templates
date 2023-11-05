@@ -61,7 +61,9 @@
         </div>
         <div class="answer-form">
 		{% if current_user.is_authenticated %}
+		{% if current_user.curcontest != contest.code %}
           <a href="/contest/{{contest.code}}/join">Join Contest</a><br><p>Joining the contest will start your timer.</p>
+		{% endif %}
 		{% else %}
 		<p>Please <a href="/login">login</a> or <a href="/signup">sign up</a> to participate in this live contest.</p>
 		{% endif %}
