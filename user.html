@@ -42,7 +42,9 @@
       {% if user.admin == 1 %}
       <img style="width:4em" src="https://mathcontestrepository.github.io/admin.png"><br>
       {% endif %}
-      <h3>Quick Stats:</h3>
+	<h3>Rating: <span {% if user.rating != 0 %} style="color:  {% if user.rating > 0 and user.rating < 100 %} #9ca39b {% elif user.rating < 300 %} #2ec912 {% elif user.rating < 500 %} #1454b5 {% elif user.rating < 800 %} #c4bf16 {% elif user.rating < 1200 %} #c43616 {% elif user.rating >= 1200 %} #541203 {% endif %}" {% endif %}>{{user.rating}}</span></h3>
+      <h3>Max Rating: <span {% if user.maxrating != 0 %} style="color:  {% if user.maxrating > 0 and user.maxrating < 100 %} #9ca39b {% elif user.maxrating < 300 %} #2ec912 {% elif user.maxrating < 500 %} #1454b5 {% elif user.maxrating < 800 %} #c4bf16 {% elif user.maxrating < 1200 %} #c43616 {% elif user.maxrating >= 1200 %} #541203 {% endif %}" {% endif %}>{{user.maxrating}}</span></h3>
+	      <h3>Quick Stats:</h3>
       <ul>
 	<li>{{user.solved.split()|length}} problems solved.</li>
 	<li>Skill level of {{user.best}}.</li>
