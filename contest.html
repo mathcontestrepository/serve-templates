@@ -43,6 +43,8 @@
 		<h4><a href="/edit-contest/{{contest.code}}">Edit Contest</a></h4>{%endif%}{%endif%}
 	  <div style="line-height:0.6">
 		  <h4>Uploaded by: {{contest.uploader}}</h4>
+		  <h4>Time Allowed: {{contest.time_allowed}} minutes</h4>
+		  <h4><a href="/contest/{{contest.code}}/leaderboard">Leaderboard</a></h4>
 	  </div>
 		{% autoescape false %}
           <p>{{contest.about}}</p>
@@ -50,7 +52,7 @@
         </div>
         <div class="answer-form">
 		{% if current_user.is_authenticated %}
-          <a href="/contest/{{contest.code}}/join">Join Contest</a>
+          <a href="/contest/{{contest.code}}/join">Join Contest</a><br><p>Joining the contest will start your timer.</p>
 		{% else %}
 		<p>Please <a href="/login">login</a> or <a href="/signup">sign up</a> to participate in this live contest.</p>
 		{% endif %}
