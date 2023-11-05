@@ -40,7 +40,7 @@
         <div class="problem">
           <h2>{{contest.title}}</h2>
 		{%if current_user.is_authenticated %}{% if current_user.admin == 1 or contest.uploader == current_user.username %}
-		<h4><a href="/edit-problem/{{contest.code}}">Edit Contest</a></h4>{%endif%}{%endif%}
+		<h4><a href="/edit-contest/{{contest.code}}">Edit Contest</a></h4>{%endif%}{%endif%}
 	  <div style="line-height:0.6">
 		  <h4>Uploaded by: {{contest.uploader}}</h4>
 	  </div>
