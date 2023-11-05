@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{contest.title}} | Math Contest Repository</title>
+  <!-- Link your CSS file here -->
+  <link rel="stylesheet" href="https://mathcontestrepository.github.io/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Biryani&display=swap" rel="stylesheet">
+<link rel="icon" href="https://mathcontestrepository.github.io/whitelogo.png">
+</head>
+<body>
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$', '$']],
+        displayMath: [['$$', '$$']]
+      }
+    };
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3.2.1/es5/tex-chtml.js"></script>
+  <div class="container">
+    <header>
+      <img style="width:5em;filter:invert(100%)" src="https://mathcontestrepository.github.io/logo.png">
+    </header>
+
+    <nav>
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/problems">Problems</a></li>
+        <li><a href="/contests">Contests</a></li>
+	<li><a href="/users">Leaderboard</a></li>
+        <li><a href="/about">About</a></li>
+      </ul>
+    </nav>
+    <main>
+      <div class="content">
+        <div class="problem">
+          <h2>{% if current_user.is_authenticated %}{% if problem.code in current_user.solved.split() %}<img style="width:1em" src="https://mathcontestrepository.github.io/solved.png"> {%endif%} {% endif %}{{problem.title}}</h2>
+		{%if current_user.is_authenticated %}{% if current_user.admin == 1 or problem.uploader == current_user.username %}
+		<h4><a href="/edit-problem/{{contest.code}}">Edit Contest</a></h4>{%endif%}{%endif%}
+	  <div style="line-height:0.6">
+		  <h4>Uploaded by: {{contest.uploader}}</h4>
+	  </div>
+		{% autoescape false %}
+          <p>{{contest.about}}</p>
+		  {%endautoescape%}
+        </div>
+        <div class="answer-form">
+		{% if current_user.is_authenticated %}
+          <a href="/contest/{{contest.code}}/join">Join Contest</a>
+		{% else %}
+		<p>Please <a href="/login">login</a> or <a href="/signup">sign up</a> to participate in this live contest.</p>
+		{% endif %}
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <footer>
+    &copy; 2023 Math Contest Repository<br>
+    <a style="color: white" href="https://discord.gg/xv6ZEnVJaR">Join our Discord server!</a>
+  </footer>
+</body>
+</html>
