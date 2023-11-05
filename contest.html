@@ -38,7 +38,7 @@
     <main>
       <div class="content">
         <div class="problem">
-          <h2>{% if current_user.is_authenticated %}{% if problem.code in current_user.solved.split() %}<img style="width:1em" src="https://mathcontestrepository.github.io/solved.png"> {%endif%} {% endif %}{{problem.title}}</h2>
+          <h2>{{contest.title}}</h2>
 		{%if current_user.is_authenticated %}{% if current_user.admin == 1 or problem.uploader == current_user.username %}
 		<h4><a href="/edit-problem/{{contest.code}}">Edit Contest</a></h4>{%endif%}{%endif%}
 	  <div style="line-height:0.6">
