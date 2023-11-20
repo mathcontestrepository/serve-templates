@@ -59,7 +59,7 @@
   <tbody>
     {% for problem in problems %}
     <tr>
-      <td><a href="/problem/{{problem.code}}">{{problem.title}}</a></td>
+      <td>{% if current_user.is_authenticated %}{% if problem.code in current_user.solved.split() %}<img style="width:1.24em" src="https://mathcontestrepository.github.io/solved.png"> {% endif %}{% endif %}<a href="/problem/{{problem.code}}">{{problem.title}}</a></td>
       <td>{{problem.points}}</td>
       <td>{{problem.tags}}</td>
     </tr>
