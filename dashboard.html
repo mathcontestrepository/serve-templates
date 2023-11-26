@@ -38,6 +38,7 @@
 
     <main>
       <h2>Welcome to MCR, {{current_user.username}}.</h2>
+      <h3>MCR Problem of the Week opens in: <div id="countdown"></div></h3>
       <p>We currently have <b><a href="/problems">{{problemcount}} problems</a></b> available, and there are <b><a href="/contests">{{contestcount}} live contests</a></b> running.</p>
       <p>Your skill level is currently <b>{{current_user.best}}</b>. Try aiming to solve a {{current_user.best + 1}}-point or higher problem to increase it.</p>
       <p>At the moment, your score is <b>{{current_user.score}}</b>.</p>
@@ -50,5 +51,41 @@
     &copy; 2023 Math Contest Repository<br>
     <a style="color: white" href="https://discord.gg/xv6ZEnVJaR">Join our Discord server!</a>
   </footer>
+<script>
+  function getTimeRemaining() {
+    const now = new Date();
+    const currentDay = now.getDay();
+    const daysUntilMonday = currentDay === 0 ? 1 : 8 - currentDay; // Calculate days until next Monday
+    const nextMonday = new Date(now.getFullYear(), now.getMonth(), now.getDate() + daysUntilMonday, 6, 0, 0, 0); // Set time to 6 AM (EST)
+    const timeRemaining = nextMonday - now;
+
+    const seconds = Math.floor((timeRemaining / 1000) % 60);
+    const minutes = Math.floor((timeRemaining / 1000 / 60) % 60);
+    const hours = Math.floor((timeRemaining / (1000 * 60 * 60)) % 24);
+    const days = Math.floor(timeRemaining / (1000 * 60 * 60 * 24));
+
+    return {
+      total: timeRemaining,
+      days,
+      hours,
+      minutes,
+      seconds
+    };
+  }
+
+  function updateCountdown() {
+    const countdownElement = document.getElementById('countdown');
+    const { days, hours, minutes, seconds } = getTimeRemaining();
+
+    if (days === 0 && hours === 0 && minutes === 0 && seconds === 0) {
+      countdownElement.innerHTML = 'POTW will open shortly!';
+    } else {
+      countdownElement.innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+    }
+  }
+
+  setInterval(updateCountdown, 1000);
+  updateCountdown(); // Initial call to display countdown immediately
+</script>
 </body>
 </html>
