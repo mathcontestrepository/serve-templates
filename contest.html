@@ -56,6 +56,7 @@
 	  </div>
 		{% if current_user.is_authenticated %}
 		{% if current_user.curcontest == contest.code %}
+		<h4>Time Remaining (reload to update): {{timeleft}}</h4>
 		<h3>Problems:</h3>
 		{% for i in problems %}
 		<p><a href="/problem/{{i.code}}" target="_blank">{{i.title}}</a></p>
