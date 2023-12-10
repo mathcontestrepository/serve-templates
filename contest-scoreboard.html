@@ -10,6 +10,37 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Biryani&display=swap" rel="stylesheet">
 <link rel="icon" href="https://mathcontestrepository.github.io/whitelogo.png">
+  <style>
+    /* Add some basic styling to the tooltip */
+    .tooltip {
+      position: relative;
+      cursor: pointer;
+    }
+
+    /* Hide the tooltip text by default */
+    .tooltip .tooltiptext {
+      visibility: hidden;
+      width: 120px;
+      background-color: #333;
+      color: #fff;
+      text-align: center;
+      border-radius: 6px;
+      padding: 5px;
+      position: absolute;
+      z-index: 1;
+      bottom: 125%; /* Position the tooltip above the text */
+      left: 50%;
+      margin-left: -60px; /* Center the tooltip above the text */
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+
+    /* Show the tooltip text on hover */
+    .tooltip:hover .tooltiptext {
+      visibility: visible;
+      opacity: 1;
+    }
+  </style>
 </head>
 <body>
 <script>
@@ -59,7 +90,8 @@ a++;
 </script>
     <tr>
       <td id = "{{usernames[i]}}"></td>
-      <td><a {% if ratings[i] != 0 %} style="color:  {% if ratings[i] > 0 and ratings[i] < 1000 %} #9ca39b {% elif ratings[i] < 1200 %} #2ec912 {% elif ratings[i] < 1600 %} #1454b5 {% elif ratings[i] < 1800 %} #c4bf16 {% elif ratings[i] < 2000 %} #c43616 {% elif ratings[i] >= 1200 %} #541203 {% endif %}" {% endif %} href="/user/{{usernames[i]}}">{{usernames[i]}}</a></td>
+      <td><a class="tooltip" {% if ratings[i] != 0 %} style="color:  {% if ratings[i] > 0 and ratings[i] < 1000 %} #9ca39b {% elif ratings[i] < 1200 %} #2ec912 {% elif ratings[i] < 1600 %} #1454b5 {% elif ratings[i] < 1800 %} #c4bf16 {% elif ratings[i] < 2000 %} #c43616 {% elif ratings[i] >= 1200 %} #541203 {% endif %}" {% endif %} href="/user/{{usernames[i]}}">{{usernames[i]}}
+      <div class="tooltiptext">{{times[i]}}</div></a></td>
       <td>{{scores[i]}}</td>
       <td>{{ratings[i]}}</td>
     </tr>
