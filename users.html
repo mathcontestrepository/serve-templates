@@ -60,7 +60,7 @@ a++;
 </script>
     <tr>
       <td id = "{{user.username}}"></td>
-      <td><a {% if user.rating != 0 %} style="color:  {% if user.rating > 0 and user.rating < 1000 %} #9ca39b {% elif user.rating < 1200 %} #2ec912 {% elif user.rating < 1600 %} #1454b5 {% elif user.rating < 1800 %} #c4bf16 {% elif user.rating < 2000 %} #c43616 {% elif user.rating >= 2000 %} #541203 {% endif %}" {% endif %} href="/user/{{user.username}}">{{user.username}}</a></td>
+      <td><a {% if user.rating != 0 %} style="color:  {% if user.rating > 0 and user.rating < 1000 %} #9ca39b {% elif user.rating < 1200 %} #2ec912 {% elif user.rating < 1400 %} #1454b5 {% elif user.rating < 1600 %} #5b1886 {% elif user.rating < 1800 %} #c4bf16 {% elif user.rating < 2000 %} #c43616 {% elif user.rating >= 2000 %} #541203 {% endif %}" {% endif %} href="/user/{{user.username}}">{{user.username}}</a></td>
       <td>{{user.score}}</td>
       <td>{{user.best}}</td>
     </tr>
