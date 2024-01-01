@@ -51,7 +51,7 @@
 		<h4><a href="/edit-problem/{{problem.code}}">Edit Problem</a></h4>{%endif%}{%endif%}
 	  <div style="line-height:0.6">
 		  {% if problem.uploader != "savir" and problem.uploader != "uploadbot" %}
-		  <h4>Contributed by: <a {% if user.rating != 0 %} style="color:  {% if user.rating > 0 and user.rating < 100 %} #9ca39b {% elif user.rating < 300 %} #2ec912 {% elif user.rating < 500 %} #1454b5 {% elif user.rating < 800 %} #c4bf16 {% elif user.rating < 1200 %} #c43616 {% elif user.rating >= 1200 %} #541203 {% endif %}" {% endif %} href="/user/{{user.username}}">{{user.username}}</a></h4>
+		  <h4>Contributed by: <a {% if user.rating != 0 %} style="color:  {% if user.rating > 0 and user.rating < 1000 %} #9ca39b {% elif user.rating < 1200 %} #2ec912 {% elif user.rating < 1400 %} #1454b5 {% elif user.rating < 1600 %} #5b1886 {% elif user.rating < 1800 %} #c4bf16 {% elif user.rating < 2000 %} #c43616 {% elif user.rating >= 2000 %} #541203 {% endif %}" {% endif %} href="/user/{{user.username}}">{{user.username}}</a></h4>
 		  {% endif %}
 		  <h4>Difficulty: {{problem.points}}</h4>
 {% if tags|length > 0 %}
