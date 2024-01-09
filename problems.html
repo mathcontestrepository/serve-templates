@@ -177,11 +177,11 @@ $(document).ready(function() {
 
 function submitForm() {
         // Get the checkbox element
+	{% if current_user.is_authenticated %}
         var checkbox = document.getElementById('customCheckbox');
 
         // Get the form element
         var form = document.getElementById('myForm');
-
         // Update the form action based on the checkbox state
         if (checkbox.checked) {
             var hd = document.getElementById('hide_solved');
@@ -193,6 +193,7 @@ function submitForm() {
 
         // Submit the form
         form.submit();
+	{% endif %}
     }
 
   </script>
