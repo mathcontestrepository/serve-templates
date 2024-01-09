@@ -11,7 +11,26 @@
 <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap" rel="stylesheet">
 <link rel="icon" href="https://mathcontestrepository.github.io/whitelogo.png">
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+	<!-- Include the noUiSlider CSS -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/14.6.4/nouislider.min.css" />
+
+<!-- Include jQuery (required for noUiSlider) -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<!-- Include the noUiSlider JavaScript -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/14.6.4/nouislider.min.js"></script>
 	<style>
+		/* Adjust the size of the slider container */
+        #slider {
+            width: 200px; /* Set your desired width */
+            margin: 20px;
+        }
+
+        /* Adjust the size of the handles */
+        .noUi-handle {
+            width: 22px !important; /* Set your desired width */
+            height: 22px !important; /* Set your desired height */
+        }
 .material-symbols-outlined {
   font-variation-settings:
   'FILL' 0,
@@ -68,6 +87,18 @@
 <button type="submit">Search</button>
     </div>
 </form>
+	      <form id="myForm">
+<p>Difficulty:</p>
+<div id="slider"></div>
+<span>Min Point: </span><input name="min_point" type="text" id="min-value" readonly><br>
+<span>Max Point: </span><input name="max_point" type="text" id="max-value" readonly>
+{% if current_user.is_authenticated %}<div class="checkbox-container">
+	<input id="hide_solved" name="hide_solved" type="text" style="display: none" value="false">
+  <input type="checkbox" class="checkbox-input" id="customCheckbox">
+  <label for="customCheckbox" class="checkbox-label">Hide Solved Problems</label>
+</div>{% endif %}
+    <button type="button" onclick="submitForm()">Filter Problems</button>
+</form>
       <h4><a href="/problems/search/tags">Search problems by tags</a></h4>
       <h4>Sort by: <a href="/problems">Difficulty (least to most)</a>, <a style="color:black" href="/problems/m2l">Difficulty (most to least)</a></h4>
 </div>
@@ -97,5 +128,72 @@
   <footer>
     &copy; 2023-2024 Math Contest Repository<br>
   </footer>
+	  <script>
+    // Get the URL parameters
+    const urlParams = new URLSearchParams(window.location.search);
+
+    // Get the value of the 'this' parameter
+    var minVal = urlParams.get('min_point');
+    var maxVal = urlParams.get('max_point');
+    var hide = urlParams.get('hide_solved');
+    if (hide == 'true') {
+       var checkbox = document.getElementById("customCheckbox");
+       checkbox.checked = true;
+    }
+
+    // Log or use the value as needed
+    if (minVal == null) {
+      minVal = 0;
+    }
+    if (maxVal == null) {
+      maxVal = 20;
+    }
+
+$(document).ready(function() {
+    var slider = document.getElementById('slider');
+    var minValue = document.getElementById('min-value');
+    var maxValue = document.getElementById('max-value');
+
+    noUiSlider.create(slider, {
+        start: [minVal, maxVal], // Initial values for min and max
+        connect: true,
+        range: {
+            'min': 0,
+            'max': 20
+        },
+
+    });
+
+    slider.noUiSlider.on('update', function(values, handle) {
+        if (handle === 0) {
+            minValue.value = Math.round(values[0]);
+        }
+        if (handle === 1) {
+            maxValue.value = Math.round(values[1]);
+        }
+    });
+});
+
+function submitForm() {
+        // Get the checkbox element
+        var checkbox = document.getElementById('customCheckbox');
+
+        // Get the form element
+        var form = document.getElementById('myForm');
+
+        // Update the form action based on the checkbox state
+        if (checkbox.checked) {
+            var hd = document.getElementById('hide_solved');
+		hd.value = 'true';
+        } else {
+            var hd = document.getElementById('hide_solved');
+		hd.value = 'false';
+        }
+
+        // Submit the form
+        form.submit();
+    }
+
+  </script>
 </body>
 </html>
