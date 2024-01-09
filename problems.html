@@ -93,11 +93,11 @@
 <div id="slider"></div>
 <span>Min Point: </span><input name="min_point" type="text" id="min-value" readonly><br>
 <span>Max Point: </span><input name="max_point" type="text" id="max-value" readonly>
-<div class="checkbox-container">
+{% if current_user.is_authenticated %}<div class="checkbox-container">
 	<input id="hide_solved" name="hide_solved" type="text" style="display: none" value="false">
   <input type="checkbox" class="checkbox-input" id="customCheckbox">
   <label for="customCheckbox" class="checkbox-label">Hide Solved Problems</label>
-</div>
+</div>{% endif %}
     <button type="button" onclick="submitForm()">Filter Problems</button>
 </form>
       <h4><a href="/problems/search/tags">Search problems by tags</a></h4>
