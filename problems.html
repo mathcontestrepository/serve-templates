@@ -91,9 +91,10 @@
 	      <form id="myForm">
 <p>Difficulty:</p>
 <div id="slider"></div>
-<input name="min_point" type="text" id="min-value" readonly>
-<input name="max_point" type="text" id="max-value" readonly>
+<span>Min Point: </span><input name="min_point" type="text" id="min-value" readonly><br>
+<span>Max Point: </span><input name="max_point" type="text" id="max-value" readonly>
 <div class="checkbox-container">
+	<input id="hide_solved" name="hide_solved" type="text" style="display: none" value="false">
   <input type="checkbox" class="checkbox-input" id="customCheckbox">
   <label for="customCheckbox" class="checkbox-label">Hide Solved Problems</label>
 </div>
@@ -166,10 +167,10 @@ $(document).ready(function() {
 
     slider.noUiSlider.on('update', function(values, handle) {
         if (handle === 0) {
-            minValue.value = 'Min: ' + Math.round(values[0]);
+            minValue.value = Math.round(values[0]);
         }
         if (handle === 1) {
-            maxValue.value = 'Max: ' + Math.round(values[1]);
+            maxValue.value = Math.round(values[1]);
         }
     });
 });
@@ -183,9 +184,11 @@ function submitForm() {
 
         // Update the form action based on the checkbox state
         if (checkbox.checked) {
-            form.action = '/problems?hide_solved=true';
+            var hd = document.getElementById('hide_solved');
+		hd.value = 'true';
         } else {
-            form.action = '/problems?hide_solved=false';
+            var hd = document.getElementById('hide_solved');
+		hd.value = 'false';
         }
 
         // Submit the form
