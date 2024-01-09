@@ -19,6 +19,60 @@
   'GRAD' 0,
   'opsz' 24
 }
+
+		/* Style for the dropdown container */
+    .dropdown {
+      position: relative;
+    }
+
+    /* Style for the dropdown button */
+    .dropbtn {
+      min-width: 320px;
+      color: white;
+      border: none;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    /* Style for the arrow icon */
+    .arrow-icon {
+      display: inline-block;
+      margin-left: 5px;
+      transition: transform 0.3s;
+    }
+
+    /* Style for the dropdown content (hidden by default) */
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #f9f9f9;
+      min-width: 320px;
+      box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+      z-index: 1;
+    }
+
+    /* Style for each item in the dropdown */
+    .dropdown-content a {
+      color: black;
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+    }
+
+    /* Change color on hover */
+    .dropdown-content a:hover {
+      background-color: #ddd;
+    }
+
+    /* Show the dropdown content when the dropdown button is clicked */
+    .dropdown.active .dropdown-content {
+      display: block;
+    }
+
+    /* Rotate arrow when the dropdown is active */
+    .dropdown.active .arrow-icon {
+      transform: rotate(90deg);
+    }
 </style>
 </head>
 <body>
@@ -78,6 +132,23 @@
 	<li>Solved {{per}}% of MCR problems.</li>
       </ul>
       <p>{{user.username}} has written {{user.contests}} live contests on the Math Contest Repository.</p>
+	      <!-- The dropdown container -->
+<div class="dropdown" id="myDropdown">
+  <!-- The dropdown button -->
+  <button class="dropbtn" onclick="toggleDropdown()">
+<div>
+    <div class="arrow-icon"><span style="font-size:18px" class="material-symbols-outlined">
+chevron_right
+</span></div> Problems Solved</div>
+  </button>
+  
+  <!-- The dropdown content -->
+  <div class="dropdown-content">
+    {% for p in prob %}
+	  <a href="/problem/{{p.code}}">{{p.title}}</a>
+	  {% endfor %}
+  </div>
+</div>
       </div>
 
     </main>
@@ -87,5 +158,11 @@
     &copy; 2023-2024 Math Contest Repository<br>
     <a style="color: white" href="https://discord.gg/xv6ZEnVJaR">Join our Discord server!</a>
   </footer>
+	<script>
+  function toggleDropdown() {
+    var dropdown = document.getElementById("myDropdown");
+    dropdown.classList.toggle("active");
+  }
+</script>
 </body>
 </html>
