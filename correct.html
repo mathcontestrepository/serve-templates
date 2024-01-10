@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Math Contest Repository - Dashboard</title>
+  <title>Math Contest Repository - Correct!</title>
   <!-- Link your CSS file here -->
   {% if current_user.is_authenticated and current_user.darkmode == 1 %}
 	<link rel="stylesheet" href="https://mathcontestrepository.github.io/dark.css">
@@ -67,6 +67,14 @@
       <img class="mark" src="https://mathcontestrepository.github.io/solved.png">
       <h1 style="color:#1ac436">Correct.</h1>
       <p>You solved the problem! You received any relevant points and if necessary, your skill level was updated!</p>
+	    <h2>
+<a href="/"><span class="material-symbols-outlined">
+arrow_back
+</span>Back To {{problem.title}}</a></h2>
+<h2>
+<a href="/"><span class="material-symbols-outlined">
+arrow_back
+</span>Back To Problems List</a></h2>
 
     </main>
   </div>
