@@ -176,6 +176,7 @@ $(document).ready(function() {
 
 function submitForm() {
         // Get the checkbox element
+	{% if current_user.is_authenticated %}
         var checkbox = document.getElementById('customCheckbox');
 
         // Get the form element
@@ -192,6 +193,7 @@ function submitForm() {
 
         // Submit the form
         form.submit();
+	{% endif %}
     }
 
   </script>
