@@ -121,7 +121,7 @@
 	    <p>Email: {{user.email}}</p>
 	    {% endif %}
 	{% if current_user.is_authenticated and current_user.username==user.username %}
-	    <a href="/darkmode">Toggle Dark Mode ({% if current_user.darkmode==1 %}On{%else%}Off{%endif%})
+	    <a href="/darkmode">Toggle Dark Mode ({% if current_user.darkmode==1 %}On{%else%}Off{%endif%})</a><br>
 	{% endif %}
       <div style="line-height:1.4">
       {% if user.admin == 1 %}
