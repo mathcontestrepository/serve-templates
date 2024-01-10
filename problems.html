@@ -193,6 +193,9 @@ function submitForm() {
 
         // Submit the form
         form.submit();
+	{% else %}
+	var form = document.getElementById('myForm');
+	form.submit();
 	{% endif %}
     }
 
