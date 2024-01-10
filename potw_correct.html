@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Math Contest Repository - Dashboard</title>
+  <title>Math Contest Repository - You Solved the POTW!</title>
   <!-- Link your CSS file here -->
   {% if current_user.is_authenticated and current_user.darkmode == 1 %}
 	<link rel="stylesheet" href="https://mathcontestrepository.github.io/dark.css">
@@ -69,6 +69,14 @@
       <h3>You've solved the problem of the week! Orz.<br>
       You've been added to a special list, which will be revealed on Friday at 6:30 PM (EST)!</h3>
       <p>You solved the problem! You received any relevant points and if necessary, your skill level was updated!</p>
+	    <h2>
+<a href="/problem/{{problem.code}}"><span class="material-symbols-outlined">
+arrow_back
+</span>Back To {{problem.title}}</a></h2>
+<h2>
+<a href="/problems"><span class="material-symbols-outlined">
+arrow_back
+</span>Back To Problems List</a></h2>
 
     </main>
   </div>
