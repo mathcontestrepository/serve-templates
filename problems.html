@@ -92,7 +92,7 @@
 <button type="submit">Search</button>
     </div>
 </form>
-	      <form style="background:#fff9cf" id="myForm">
+	      <form style="background:{% if current_user.is_authenticated and current_user.darkmode == 1%} #535563 {% else %} #fff9cf {% endif %}" id="myForm">
 <p>Difficulty:</p>
 <div id="slider"></div>
 <span>Min Point: </span><input name="min_point" type="text" id="min-value" readonly><br>
