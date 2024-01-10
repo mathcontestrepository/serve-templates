@@ -13,7 +13,11 @@
     <meta property="og:url" content="https://www.mathcontestrepository.pythonanywhere.com">
     <meta property="og:type" content="website">
   <!-- Link your CSS file here -->
-  <link rel="stylesheet" href="https://mathcontestrepository.github.io/style.css">
+  {% if current_user.is_authenticated and current_user.darkmode == 1 %}
+	<link rel="stylesheet" href="https://mathcontestrepository.github.io/dark.css">
+  {% else %}
+	<link rel="stylesheet" href="https://mathcontestrepository.github.io/style.css">
+  {% endif }
   <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap" rel="stylesheet">
