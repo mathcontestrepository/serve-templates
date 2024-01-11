@@ -93,10 +93,10 @@
     </tr>
   </thead>
   <tbody>
-    {% for sub in subs %}
+    {% for i in range(cnt) %}
     <tr>
-      <td><h4><a href="/problem/{{sub.problem}}">{{problems[i]}}</a></h4>
-<span style="font-size: 14px">Submitted by <a href="/problem/{{sub.user}}">{{users[i]}}</a> on {{sub.date}}.</span></td>
+      <td><h4><a href="/problem/{{problems[i]}}">{{po[i]}}</a></h4>
+<span style="font-size: 14px">Submitted by <a href="/problem/{{users[i]}}">{{users[i]}}</a> on {{dates[i]}}.</span></td>
     </tr>
 {% endfor %}
   </tbody>
