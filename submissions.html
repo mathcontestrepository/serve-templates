@@ -95,6 +95,7 @@
   <tbody>
     {% for i in range(cnt) %}
     <tr>
+      <td><img class="mark" style="width: 1.8em" src="https://mathcontestrepository.github.io/{% if correct[i] %}solved.png{%else%}wrong.png{%endif%}"></td>
       <td><h4><a href="/problem/{{problems[i]}}">{{po[i]}}</a></h4>
 <span style="font-size: 14px">Submitted by <a href="/user/{{users[i]}}">{{users[i]}}</a> on {{dates[i]}}.</span></td>
     </tr>
