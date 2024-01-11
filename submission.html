@@ -87,7 +87,7 @@
       <div style="line-height: 0.8">
       <h2>Submission #{{sub.id}}</h2>
 <p><code>{{sub.text}}</code></p>
-<p>Result: <img style="width: 1.2em" class="mark" src="https://mathcontestrepository.github.io/solved.png"></p>
+<p>Result: <img style="width: 1.2em" class="mark" src="https://mathcontestrepository.github.io/{{if sub.correct %}solved.png{% else %}wrong.png{% endif %}"></p>
 </div>
 
 
