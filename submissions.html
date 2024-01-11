@@ -100,6 +100,7 @@
       <td><img class="mark" style="width: 1.8em" src="https://mathcontestrepository.github.io/{% if correct[i] %}solved.png{%else%}wrong.png{%endif%}"></td>
       <td><h4><a href="/problem/{{problems[i]}}">{{po[i]}}</a></h4>
 <span style="font-size: 14px">Submitted by <a href="/user/{{users[i]}}">{{users[i]}}</a> <span aria-label="{{dates[i]}}">{{ac[i]}}</span>.</span></td>
+      {% if current_user.is_authenticated and (current_user.username==users[i] or problems[i] in current_user.solved)<td><a href="/submission/{{idd[i]}}">View</a></td>{% endif %}
     </tr>
 {% endfor %}
   </tbody>
