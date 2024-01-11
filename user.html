@@ -129,6 +129,7 @@
       {% if user.admin == 1 %}
       <img class="mark" style="width:4em" src="https://mathcontestrepository.github.io/admin.png"><br>
       {% endif %}
+	<a href="/submissions?by={{user.username}}">View Submissions</a>
 	<h3>Rating: <span {% if user.rating != 0 %} style="color:  {% if user.rating > 0 and user.rating < 1000 %} #9ca39b {% elif user.rating < 1200 %} #2ec912 {% elif user.rating < 1400 %} #1454b5 {% elif user.rating < 1600 %} #5b1886 {% elif user.rating < 1800 %} #c4bf16 {% elif user.rating < 2000 %} #c43616 {% elif user.rating >= 2000 %} #541203 {% endif %}" {% endif %}>{{user.rating}}</span></h3>
       <h3>Max Rating: <span {% if user.max_rating != 0 %} style="color:  {% if user.max_rating > 0 and user.max_rating < 1000 %} #9ca39b {% elif user.max_rating < 1200 %} #2ec912 {% elif user.max_rating < 1400 %} #1454b5 {% elif user.max_rating < 1600 %} #5b1886 {% elif user.max_rating < 1800 %} #c4bf16 {% elif user.max_rating < 2000 %} #c43616 {% elif user.max_rating >= 2000 %} #541203 {% endif %}" {% endif %}>{{user.max_rating}}</span></h3>
 	      <h3>Quick Stats:</h3>
