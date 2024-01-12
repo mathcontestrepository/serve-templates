@@ -100,7 +100,7 @@
       <td><img class="mark" style="width: 1.8em" src="https://mathcontestrepository.github.io/{% if correct[i] %}solved.png{%else%}wrong.png{%endif%}"></td>
       <td><h4><a href="/problem/{{problems[i]}}">{{po[i]}}</a></h4>
 {% if current_user.is_authenticated and (current_user.username==users[i] or problems[i] in current_user.solved.split()) %}<a href="/submission/{{idd[i]}}">View</a><br>{% endif %}
-<span style="font-size: 14px">Submitted by <a href="/user/{{users[i]}}">{{users[i]}}</a> <span aria-label="{{dates[i]}}">{{ac[i]}}</span>.</span></td>
+<span style="font-size: 14px">Submitted by <a {% if rat[i] != 0 %} style="color:  {% if rat[i] > 0 and rat[i] < 1000 %} #9ca39b {% elif rat[i] < 1200 %} #2ec912 {% elif rat[i] < 1400 %} #1454b5 {% elif rat[i] < 1600 %} #5b1886 {% elif rat[i] < 1800 %} #c4bf16 {% elif rat[i] < 2000 %} #c43616 {% elif rat[i] >= 2000 %} #541203 {% endif %}" {% endif %} href="/user/{{users[i]}}">{{users[i]}}</a> <span aria-label="{{dates[i]}}">{{ac[i]}}</span>.</span></td>
     </tr>
 {% endfor %}
   </tbody>
