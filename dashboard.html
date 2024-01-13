@@ -67,6 +67,18 @@
 
     <main>
       <h2>Welcome to MCR, {{current_user.username}}.</h2>
+	    <h3>Recent Announcements</h3>
+	    {% autoescape false %}
+	    <ul class="news-list">
+	    {% for i in range(cnt) %}
+	    <li style="background:{% if current_user.is_authenticated and current_user.darkmode == 1%} #535563 {% else %} #fff9cf {% endif %}" class="news-list-item">
+	        <h3>{{title[i]}}</h3>
+	        <p>published by {{authors[i]}} {{pub[i]}}.</p>
+	        <p>{{body[i]}}</p>
+	      </li>
+	    {% endfor %}
+	    </ul>
+	    {%endautoescape%}
       <h3>MCR Problem of the Week opens in: <div id="countdown"></div></h3>
       <p>We currently have <b><a href="/problems">{{problemcount}} problems</a></b> available, and there are <b><a href="/contests">{{contestcount}} live contests</a></b> running.</p>
       <p>Your skill level is currently <b>{{current_user.best}}</b>. Try aiming to solve a {{current_user.best + 1}}-point or higher problem to increase it.</p>
