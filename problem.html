@@ -113,6 +113,19 @@
 		<p>Please <a href="/login">login</a> or <a href="/signup">sign up</a> to submit and check if your answer is correct.</p>
 		{% endif %}
         </div>
+	      <br><div style="padding: 12px; background:{% if current_user.is_authenticated and current_user.darkmode == 1%} #535563 {% else %} #fff9cf {% endif %}">
+<a style="text-decoration: underline; font-size: 18px" href="/report">
+<span style="font-size: 18px" class="material-symbols-outlined">
+flag
+</span> Report Content</a><br>
+<small>You should report content if:
+<ul>
+<li>It may be offensive.</li>
+<li>There is something wrong with it (statement or difficulty value)</li>
+<li>It isn't original.</li>
+</ul>
+Thanks for keeping the Math Contest Repository a clean and safe environment!</small>
+</div>
       </div>
     </main>
   </div>
