@@ -42,6 +42,13 @@
   'GRAD' 0,
   'opsz' 24
 }
+
+.sp {
+      text-transform: uppercase; /* Converts text to uppercase */
+      letter-spacing: 2px; /* Adjust the spacing between letters */
+      /* You can also use 'word-spacing' to adjust the spacing between words */
+      /* word-spacing: 5px; */
+    }
 </style>
 </head>
 <body>
@@ -89,7 +96,10 @@
       <h2>Welcome to the Math Contest Repository</h2>
 <button onclick="window.location.href='/login'">Login</button>
 <button onclick="window.location.href='/signup'">Signup</button>
-	    <h3>Recent Announcements</h3>
+	    <h4 class="sp">The MCR is supported by:</h4>
+            <a target="_blank" href="https://www.desmos.com/"><img style="width: 10em" src="https://cdn-assets-cloud.frontify.com/s3/frontify-cloud-files-us/eyJwYXRoIjoiZnJvbnRpZnlcL2FjY291bnRzXC9mYVwvMjM2MTg3XC9wcm9qZWN0c1wvMzM5MzkyXC9hc3NldHNcL2ZiXC82NTMxNDUxXC84NDIxYmM1NzVhMmY2OWJjNTYxMjlmZjg1OWI4MDA2Ni0xNjUxNTI4ODAyLnBuZyJ9:frontify:jPelYwqNlQEdXe-jdoPzafB1lTrxDDkk4vPncw5mRuM?width=2400"></a>
+	    
+	    <br><br><h3>Recent Announcements</h3>
 	    {% autoescape false %}
 	    <ul class="news-list">
 	    {% for i in range(cnt) %}
