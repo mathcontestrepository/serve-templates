@@ -94,11 +94,13 @@
                 <h4><a href="/leave-mock">Leave This Mock</a></h4>
 <div class="answer-form">
 <form action="/submit-mock" method="POST">
+	{% autoescape false %}
 		{% for i in range(cnt) %}
 		<h3>{{title[i]}}</h3>
                 <p>{{body[i]}}</p>
                 <input type="text" id="ans" name="{{i}}" placeholder="Enter your answer"><br>
 		{% endfor %}
+	{% endautoescape %}
 </form>
 </div>
         </div>
