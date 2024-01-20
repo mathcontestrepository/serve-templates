@@ -93,11 +93,11 @@
 <small>We recommend that you submit with at least 2 minutes left if possible to account for unlikely but potential server issues.</small></b>
                 <h4><a href="/leave-mock">Leave This Mock</a></h4>
 <div class="answer-form">
-<form>
+<form action="/submit-mock" method="POST">
 		{% for i in range(cnt) %}
 		<h3>{{title[i]}}</h3>
                 <p>{{body[i]}}</p>
-                <input type="text" id="ans" name="{{i}}" placeholder="Enter your answer" required><br>
+                <input type="text" id="ans" name="{{i}}" placeholder="Enter your answer"><br>
 		{% endfor %}
 </form>
 </div>
