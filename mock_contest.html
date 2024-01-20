@@ -13,11 +13,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Mock {{tag.upper()}} | Math Contest Repository</title>
-	<meta name="keywords" content="{{contest.title}}, {{contest.code}}, math, contest, preparation, CEMC, University of Waterloo, high school, problems, solutions, practice, repository">
+	<meta name="keywords" content="math, contest, preparation, CEMC, University of Waterloo, high school, problems, solutions, practice, repository">
     
     <!-- Open Graph Protocol meta tags for social media embeds -->
     <meta property="og:title" content="Math Contest Repository">
-    <meta property="og:description" content="{{contest.about}}">
+    <meta property="og:description" content="">
     <meta property="og:image" content="https://mathcontestrepository.github.io/logo.png">
     <meta property="og:url" content="https://www.mathcontestrepository.pythonanywhere.com">
     <meta property="og:type" content="website">
@@ -101,10 +101,6 @@
 		{% endfor %}
 </form>
 </div>
-		
-		{% autoescape false %}
-          <p>{{contest.about}}</p>
-		  {%endautoescape%}
         </div>
       </div>
     </main>
