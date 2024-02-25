@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-BDF78N63FS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-BDF78N63FS');
+</script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{new.title}} | Math Contest Repository</title>
+  <!-- Link your CSS file here -->
+  {% if current_user.is_authenticated and current_user.darkmode == 1 %}
+	<link rel="stylesheet" href="https://mathcontestrepository.github.io/dark.css">
+  {% else %}
+	<link rel="stylesheet" href="https://mathcontestrepository.github.io/style.css">
+  {% endif %}
+  <meta property="og:title" content="Math Contest Repository">
+    <meta property="og:description" content="{{new.body}}">
+    <meta property="og:image" content="https://mathcontestrepository.github.io/logo.png">
+    <meta property="og:url" content="https://www.mathcontestrepository.pythonanywhere.com">
+    <meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito&display=swap" rel="stylesheet">
+<link rel="icon" href="https://mathcontestrepository.github.io/whitelogo.png">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+	<style>
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 24
+}
+</style>
+</head>
+<body>
+<script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$', '$']],
+        displayMath: [['$$', '$$']]
+      }
+    };
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3.2.1/es5/tex-chtml.js"></script>
+  <div class="container">
+    <header class="header2">
+      <img style="width:5em;filter:invert(100%)" src="https://mathcontestrepository.github.io/logo.png">
+    </header>
+
+<nav class="nav2" style="display: none">
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/problems">Problems</a></li>
+        <li><a href="/contests">Contests</a></li>
+	<li><a href="/users">Leaderboard</a></li>
+	<li><a href="/submissions">Submissions</a></li>
+        <li><a href="/about">About</a></li>
+      </ul>
+    </nav>
+
+    <nav>
+<header>
+      <img style="width:8em;filter:invert(100%)" src="https://mathcontestrepository.github.io/logo.png">
+    </header>
+      <ul>
+        <li><a href="/"><span class="material-symbols-outlined">home</span><br>Home</a></li>
+        <li><a href="/problems"><span class="material-symbols-outlined">toys_and_games</span><br>Problems</a></li>
+        <li><a href="/contests"><span class="material-symbols-outlined">trophy</span><br>Contests</a></li>
+	<li><a href="/users"><span class="material-symbols-outlined">stars</span><br>Leaderboard</a></li>
+	<li><a href="/submissions"><span class="material-symbols-outlined">task</span><br>Submissions</a></li>
+        <li><a href="/about"><span class="material-symbols-outlined">waving_hand</span><br>About</a></li>
+      </ul>
+    </nav>
+
+    <main>
+	    {% autoescape false %}
+	    <ul class="news-list">
+	    <li style="background:{% if current_user.is_authenticated and current_user.darkmode == 1%} #535563 {% else %} #fff9cf {% endif %}" class="news-list-item">
+	        <h3>{{new.title}}</h3>
+	        <p>published by {{new.authors}} {{datee}}.</p>
+	        <p>{{new.body}}</p>
+	      </li>
+	    </ul>
+	    {%endautoescape%}
+    </main>
+  </div>
+
+  <footer>
+    &copy; 2023-2024 Math Contest Repository<br>
+  </footer>
+<script>
+  function getTimeRemaining() {
+    const now = new Date();
+    const currentDay = now.getDay();
+    const daysUntilMonday = currentDay === 0 ? 1 : 8 - currentDay; // Calculate days until next Monday
+    const nextMonday = new Date(now.getFullYear(), now.getMonth(), now.getDate() + daysUntilMonday, 6, 0, 0, 0); // Set time to 6 AM (EST)
+    const timeRemaining = nextMonday - now;
+
+    const seconds = Math.floor((timeRemaining / 1000) % 60);
+    const minutes = Math.floor((timeRemaining / 1000 / 60) % 60);
+    const hours = Math.floor((timeRemaining / (1000 * 60 * 60)) % 24);
+    const days = Math.floor(timeRemaining / (1000 * 60 * 60 * 24));
+
+    return {
+      total: timeRemaining,
+      days,
+      hours,
+      minutes,
+      seconds
+    };
+  }
+
+  function updateCountdown() {
+    const countdownElement = document.getElementById('countdown');
+    const { days, hours, minutes, seconds } = getTimeRemaining();
+
+    if (days === 0 && hours === 0 && minutes === 0 && seconds === 0) {
+      countdownElement.innerHTML = 'POTW will open shortly!';
+    } else {
+      countdownElement.innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+    }
+  }
+
+  setInterval(updateCountdown, 1000);
+  updateCountdown(); // Initial call to display countdown immediately
+</script>
+</body>
+</html>
