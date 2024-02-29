@@ -94,6 +94,26 @@
     </tr>
 {% endfor %}
   </tbody>
+</table><br>
+	    <div style="line-height: 0.8">
+	    <h2>Past Live Math Contests</h2>
+      <h4>The MCR has hosted several live math contests in the past. We have {{num2}} past contests saved below.</h4>
+	    </div>
+	    <table class="contest-table">
+  <thead>
+    <tr>
+      <th>Contest Title</th>
+      <th>Uploader/Organizer</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for contest in pastcontests %}
+    <tr>
+      <td><a href="/contest/past/{{contest.code}}">{{contest.title}}</a></td>
+      <td>{{contest.uploader}}</td>
+    </tr>
+{% endfor %}
+  </tbody>
 </table>
 
 
