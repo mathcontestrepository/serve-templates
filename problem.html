@@ -40,6 +40,54 @@
   'GRAD' 0,
   'opsz' 24
 }
+.modal-overlay {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal {
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  max-width: 600px;
+  text-align: center;
+}
+
+.close-modal {
+  background-color: #ccc;
+  color: #333;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+.signup-button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.signup-button:hover {
+  background-color: #0056b3;
+  color: white;
+}
+
+.signup-button:active {
+  color: white;
+  }
 </style>
 </head>
 <body>
@@ -133,5 +181,41 @@ Thanks for keeping the Math Contest Repository a clean and safe environment!</sm
   <footer>
     &copy; 2023-2024 Math Contest Repository<br>
   </footer>
+	<div style="display:none" class="modal-overlay">
+  <div class="modal">
+    <small>You are seeing this message because you are not logged in.</small><br>
+    <small>If you are able to, please <a href="https://www.buymeacoffee.com/mathcontests">donate $5</a> to keep our free platform running!</small>
+    <h2>Make a <i>free</i> MCR account to unlock over a thousand math problems, contests, and solutions.</h2>
+    <div style="text-align: left">
+    <h1>1300+ <small style="font-size: 20px">Math Contest-Style Problems</small></h1>
+    <h1>1500+ <small style="font-size: 20px">Solution Submissions</small></h1>
+    <h1>100+ <small style="font-size: 20px">Special Challenges</small></h1>
+    <h1>10+ <small style="font-size: 20px">Live Contests Annually</small></h1>
+    <h1>24/7 <small style="font-size: 20px">Community Help & Support</small></h1>
+    </div>
+    <p>You don't need to be logged in to browse, but create an account to unlock all the features and benefits. Terms apply. Please provide accurate information when signing up.</p>
+    <button class="close-modal">Maybe Later</button>
+    <a href="/signup" class="signup-button">Sign Up</a>
+    <a href="/login" class="signup-button">Log In</a>
+  </div>
+</div>
+	{% if not current_user.is_authenticated %}
+<script>
+  const modalOverlay = document.querySelector('.modal-overlay');
+  const closeModalButton = document.querySelector('.close-modal');
+
+  // Function to show the modal after 2 seconds
+  function showModal() {
+    modalOverlay.style.display = 'flex';
+  }
+
+  // Delay showing the modal by 2 seconds
+  setTimeout(showModal, 640); // 2 seconds in milliseconds
+
+  closeModalButton.addEventListener('click', () => {
+    modalOverlay.style.display = 'none';
+  });
+</script>
+	{% endif %}
 </body>
 </html>
