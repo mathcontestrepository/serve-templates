@@ -121,18 +121,6 @@
                     <button type="submit">Search</button>
                 </div>
             </form>
-            <form style="padding: 2px; background:{% if current_user.is_authenticated and current_user.darkmode == 1%} #535563 {% else %} #fff9cf {% endif %}" id="myForm">
-                <p>Difficulty:</p>
-                <div id="slider"></div>
-                <span>Min Point: </span><input name="min_point" type="text" id="min-value" readonly><br>
-                <span>Max Point: </span><input name="max_point" type="text" id="max-value" readonly>
-                {% if current_user.is_authenticated %}<div class="checkbox-container">
-                    <input id="hide_solved" name="hide_solved" type="text" style="display: none" value="false">
-                    <input type="checkbox" class="checkbox-input" id="customCheckbox">
-                    <label for="customCheckbox" class="checkbox-label">Hide Solved Problems</label>
-                </div>{% endif %}<br>
-                <button type="button" onclick="submitForm()">Filter Problems</button>
-            </form>
             <h4><a href="/problems/search/tags">Search problems by tags</a></h4>
 <h4>Sort by: <a style="color:black" href="/problems">Difficulty (least to most)</a>, <a href="/problems/m2l">Difficulty (most to least)</a></h4>
 </div>
@@ -161,20 +149,17 @@
     <!-- For example, you can add a sidebar with filters -->
     <h3>Filter Options</h3>
     <form style="padding: 2px; background:{% if current_user.is_authenticated and current_user.darkmode == 1%} #535563 {% else %} #fff9cf {% endif %}" id="myForm">
-        <p>Difficulty:</p>
-        <div id="slider"></div>
-        <span>Min Point: </span><input name="min_point" type="text" id="min-value" readonly><br>
-        <span>Max Point: </span><input name="max_point" type="text" id="max-value" readonly>
-        {% if current_user.is_authenticated %}
-        <div class="checkbox-container">
-            <input id="hide_solved" name="hide_solved" type="text" style="display: none" value="false">
-            <input type="checkbox" class="checkbox-input" id="customCheckbox">
-            <label for="customCheckbox" class="checkbox-label">Hide Solved Problems</label>
-        </div>
-        {% endif %}
-        <br>
-        <button type="button" onclick="submitForm()">Filter Problems</button>
-    </form>
+                <p>Difficulty:</p>
+                <div id="slider"></div>
+                <span>Min Point: </span><input name="min_point" type="text" id="min-value" readonly><br>
+                <span>Max Point: </span><input name="max_point" type="text" id="max-value" readonly>
+                {% if current_user.is_authenticated %}<div class="checkbox-container">
+                    <input id="hide_solved" name="hide_solved" type="text" style="display: none" value="false">
+                    <input type="checkbox" class="checkbox-input" id="customCheckbox">
+                    <label for="customCheckbox" class="checkbox-label">Hide Solved Problems</label>
+                </div>{% endif %}<br>
+                <button type="button" onclick="submitForm()">Filter Problems</button>
+            </form>
 </aside>
 
 </div>
