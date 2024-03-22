@@ -163,7 +163,7 @@
     <h3>Top Problems Right Now</h3>
     <div style="padding: 2px; background:{% if current_user.is_authenticated and current_user.darkmode == 1%} #535563 {% else %} #fff9cf {% endif %}">
     {% for problem in pro %}
-    <a href="/problem/{{problem.code}}">{{problem.title}}</a><br>
+    <a href="/problem/{{problem.code}}">{{problem.title}}</a><br><br>
     {% endfor %}
     </div>
 </aside>
