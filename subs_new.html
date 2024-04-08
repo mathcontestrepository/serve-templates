@@ -149,7 +149,10 @@
         <span class="dots">...</span>
     {% endif %}
 
-    {% for page_num in range(max(1, current_page - 2), min(total_pages, current_page + 2) + 1) %}
+    {% set start_page = current_page - 2 if current_page > 2 else 1 %}
+    {% set end_page = current_page + 2 if current_page < total_pages - 2 else total_pages %}
+
+    {% for page_num in range(start_page, end_page + 1) %}
         <a {% if page_num == current_page %}class="active"{% endif %} href="/submissions?page={{ page_num }}" class="button">{{ page_num }}</a>
     {% endfor %}
 
