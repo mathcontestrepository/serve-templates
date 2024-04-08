@@ -142,14 +142,24 @@
             </tbody>
         </table>
         <div class="pagination">
-            <a href="/submissions?page=1" class="button">&laquo; First</a>
-            <a href="/submissions?page={{ current_page - 1 }}" class="button">&laquo; Prev</a>
-            {% for page_num in range(1, total_pages + 1) %}
-                <a {% if page_num == current_page %}class="active"{% endif %} href="/submissions?page={{ page_num }}" class="button">{{ page_num }}</a>
-            {% endfor %}
-            <a href="/submissions?page={{ current_page + 1 }}" class="button">Next &raquo;</a>
-            <a href="/submissions?page={{ total_pages }}" class="button">Last &raquo;</a>
-        </div>
+    <a href="/submissions?page=1" class="button">&laquo; First</a>
+    <a href="/submissions?page={{ current_page - 1 }}" class="button">&laquo; Prev</a>
+
+    {% if current_page > 3 %}
+        <span class="dots">...</span>
+    {% endif %}
+
+    {% for page_num in range(max(1, current_page - 2), min(total_pages, current_page + 2) + 1) %}
+        <a {% if page_num == current_page %}class="active"{% endif %} href="/submissions?page={{ page_num }}" class="button">{{ page_num }}</a>
+    {% endfor %}
+
+    {% if current_page < total_pages - 2 %}
+        <span class="dots">...</span>
+    {% endif %}
+
+    <a href="/submissions?page={{ current_page + 1 }}" class="button">Next &raquo;</a>
+    <a href="/submissions?page={{ total_pages }}" class="button">Last &raquo;</a>
+</div>
     </main>
 </div>
 
