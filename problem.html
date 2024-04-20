@@ -154,6 +154,7 @@
 		{% if current_user.is_authenticated %}
 		{% if "AIME" in problem.body and "This problem statement was automatically fetched" in problem.body %}
 		<p><b>Answers to all AIME problems are three digits. Please ensure that you input leading zeros if necessary (e.g. "60" should be inputted as "060"). This only applies for AIME problems.</b></p>
+		{% endif %}
           <form action="/problem/{{problem.code}}/submit" method="post">
             <label for="ans">Your Answer:</label>
             <input type="text" id="ans" name="ans" placeholder="Enter your answer" required>
