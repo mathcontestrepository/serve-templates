@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Our Team | Math Contest Repository</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito&display=swap" rel="stylesheet">
+<link rel="icon" href="https://mathcontestrepository.github.io/whitelogo.png">
+{% if current_user.is_authenticated and current_user.darkmode == 1 %}
+	<link rel="stylesheet" href="https://mathcontestrepository.github.io/dark.css">
+  {% else %}
+	<link rel="stylesheet" href="https://mathcontestrepository.github.io/style.css">
+  {% endif %}
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+  <!-- Add any additional styles if needed -->
+  <style>
+  .material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 24
+}
+    /* Additional styles specific to the Our Team page */
+    .team-member {
+      margin-bottom: 20px;
+      padding: 10px;
+      border: 1px solid #ccc;
+    }
+  </style>
+</head>
+<body>
+<script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$', '$']],
+        displayMath: [['$$', '$$']]
+      }
+    };
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3.2.1/es5/tex-chtml.js"></script>
+  <div class="container">
+    <header class="header2">
+      <img style="width:5em;filter:invert(100%)" src="https://mathcontestrepository.github.io/logo.png">
+    </header>
+
+<nav class="nav2" style="display: none">
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/problems">Problems</a></li>
+        <li><a href="/contests">Contests</a></li>
+	<li><a href="/users">Leaderboard</a></li>
+	<li><a href="/submissions">Submissions</a></li>
+        <li><a href="/about">About</a></li>
+      </ul>
+    </nav>
+
+    <nav>
+<header>
+      <img style="width:8em;filter:invert(100%)" src="https://mathcontestrepository.github.io/logo.png">
+    </header>
+      <ul>
+        <li><a href="/"><span class="material-symbols-outlined">home</span><br>Home</a></li>
+        <li><a href="/problems"><span class="material-symbols-outlined">toys_and_games</span><br>Problems</a></li>
+        <li><a href="/contests"><span class="material-symbols-outlined">trophy</span><br>Contests</a></li>
+	<li><a href="/users"><span class="material-symbols-outlined">stars</span><br>Leaderboard</a></li>
+	<li><a href="/submissions"><span class="material-symbols-outlined">task</span><br>Submissions</a></li>
+        <li><a href="/about"><span class="material-symbols-outlined">waving_hand</span><br>About</a></li>
+      </ul>
+    </nav>
+
+
+    <main>
+      <h2>Our Team</h2>
+	<p>The MCR was launched in October 2023 by some grade 11 students at Garth Webb Secondary School. The initial edition of the MCR simply scraped problems and answers from various websites and mapped them together in a database. Users could then check if their answers were correct by typing in a number. This is still the core functionality of the MCR today, but our team has built on this by including a real-time grading feature by pulling answers from websites when the user submits for some problems (meaning we don't need to store answers). Now we host weekly challenges and large online contests open to all users. We boast nearly 1400 public math problems, of which over 1200 were scraped from the web. We've also hosted 7 of our own contests, some of which have been saved <a href="https://mathcontestrepository.pythonanywhere.com/contests">here</a>.</p>
+      <section>
+        <h3>Executive Team</h3>
+        <p>Feel free to connect with or contact our executives!</p>
+        <div class="team-member">
+          <h4>Savir Singh</h4>
+          <p>Founder, President, & Director of Software Development</p>
+          <p>Savir is passionate about mathematics, computing, and anything else involving problem-solving. He programmed the Math Contest Repository as a personal platform to practice for CEMC and MAA math contests without having to switch tabs between problems and solutions in September 2023. He made the platform public on October 18, 2023, and his friends from school managed aspects like marketing, moderating, and communications. You can find Savir on the MCR <a href="https://mathcontestrepository.pythonanywhere.com/user/savir">@savir</a>.</p>
+          <a href="https://savirsingh.com">Personal Website</a> | <a href="https://linkedin.com/in/savirss">LinkedIn</a>
+        </div>
+
+        <div class="team-member">
+          <h4>Henry Moore</h4>
+          <p>Director of Marketing & Advertising</p>
+          <p>Henry joined the MCR in October 2023 as a marketer and informed students about our platform through posters and advertisements on social media platforms. His efforts have led to the MCR becoming a global platform with more than 200 users and thousands of monthly page views. You can find Henry on the MCR <a href="https://mathcontestrepository.pythonanywhere.com/user/henry">@henry</a>.</p>
+          <a href="https://linkedin.com/in/henry-moore-57b247272">LinkedIn</a>
+        </div>
+        <div class="team-member">
+          <h4>Boaz Lee</h4>
+          <p>Director of Communications</p>
+          <p>Boaz's responsibility is to respond to queries from users and to provide public updates on the Math Contest Repository. He shares our vision with the world. You can find Boaz on the MCR <a href="https://mathcontestrepository.pythonanywhere.com/user/bzl">@bzl</a>.</p>
+          <a href="https://linkedin.com/in/boaz-lee-34a775276">LinkedIn</a>
+        </div>
+      </section>
+
+      <section>
+        <h3>Development Team</h3>
+        <div class="team-member">
+          <h4>Charlie Qiu</h4>
+          <p>Web Developer</p>
+          <p>Charlie is a web developer at the Math Contest Repository. He is currently working with to implement MathCoin (our platform's virtual currency) based on the ideas of our directors.</p>
+        </div>
+
+      </section>
+      <section>
+        <h3>Problem Setting Team</h3>
+        <p>Our problem setters consist of both official volunteers and interested (anonymous) users. Here we list official volunteers.</p>
+        <div class="team-member">
+          <h4>Carey Cui</h4>
+          <p>POTW Team, Problem Setter</p>
+          <p>Carey sets innovative problems and uses the MCR as a platform to share his creative ideas with like-minded individuals. He also contributes to our weekly challenge, the POTW. You can find Carey on the MCR <a href="https://mathcontestrepository.pythonanywhere.com/user/devourer">@devourer</a>. He's ranked first place overall by points :)</p>
+        </div>
+
+      </section>
+    </main>
+  </div>
+
+  <footer>
+    &copy; 2023-2024 Math Contest Repository<br>
+  </footer>
+</body>
+</html>
