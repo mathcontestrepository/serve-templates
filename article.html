@@ -75,7 +75,11 @@
     <main>
       <h2>{{ art.title }}</h2>
       <h4>Author(s): {{ art.author }}</h4>
+	    {% autoescape false %}
       <p>{{ art.body }}</p>
+	    {% endautoescape %}
+	    <small>This article was reviewed by the Committee of the Math Contest Repository Wiki.</small><br>
+	    <a href="/wiki/suggest-edit">Suggest an Edit</a>
     </main>
   </div>
 
