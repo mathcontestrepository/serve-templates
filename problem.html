@@ -146,9 +146,17 @@
           <h4>This problem is tagged with {% for i in range(tags|length) %} <a href="/problems/search/tags/submit?term={{tags[i]}}">{{tags[i]}}</a>{% if i != (tags|length)-1 %}, {%endif%}{%endfor%}.</h4>
 {% endif %}
 	  </div>
+		<div style="display:flex">
+		<div>
 		{% autoescape false %}
           <p>{{problem.body}}</p>
 		  {%endautoescape%}
+		</div>
+		<div style="text-align: center; width: 32%" class="ads">
+<p>Advertisement</p>
+<a href="/elite"><img style="width: 100%" src="https://mathcontestrepository.github.io/elite-ad.gif"></a>
+</div>
+	</div>
         </div>
         <div class="answer-form">
 		{% if current_user.is_authenticated %}
