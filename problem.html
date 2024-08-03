@@ -209,24 +209,6 @@ Thanks for keeping the Math Contest Repository a clean and safe environment!</sm
     <a href="/signup" class="signup-button">Sign Up</a>
     <a href="/login" class="signup-button">Log In</a>
   </div>
-</div>
-	{% if not current_user.is_authenticated %}
-<script>
-  const modalOverlay = document.querySelector('.modal-overlay');
-  const closeModalButton = document.querySelector('.close-modal');
-
-  // Function to show the modal after 2 seconds
-  function showModal() {
-    modalOverlay.style.display = 'flex';
-  }
-
-  // Delay showing the modal by 2 seconds
-  setTimeout(showModal, 640); // 2 seconds in milliseconds
-
-  closeModalButton.addEventListener('click', () => {
-    modalOverlay.style.display = 'none';
-  });
-</script>
-	{% endif %}
+	</div>
 </body>
 </html>
