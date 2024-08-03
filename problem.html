@@ -194,16 +194,7 @@
 		{% autoescape false %}
           <p>{{problem.body}}</p>
 		  {%endautoescape%}
-		</div>
-			{% if not current_user.is_authenticated or current_user.elite == 0 %}
-		<div style="text-align: center; width: 32%" class="ads">
-<p>Advertisement</p>
-<a href="/elite"><img style="width: 100%" src="https://mathcontestrepository.github.io/elite-ad.gif"></a>
-</div>
-			{% endif %}
-	</div>
-        </div>
-        <div class="answer-form">
+			<div class="answer-form">
 		{% if current_user.is_authenticated %}
 		{% if "AIME" in problem.body and "This problem statement was automatically fetched" in problem.body %}
 		<p><b>Answers to all AIME problems are three digits. Please ensure that you input leading zeros if necessary (e.g. "60" should be inputted as "060"). This only applies for AIME problems.</b></p>
@@ -217,6 +208,15 @@
 		<p>Please <a href="/login">login</a> or <a href="/signup">sign up</a> to submit and check if your answer is correct.</p>
 		{% endif %}
         </div>
+		</div>
+			{% if not current_user.is_authenticated or current_user.elite == 0 %}
+		<div style="text-align: center; width: 32%" class="ads">
+<p>Advertisement</p>
+<a href="/elite"><img style="width: 100%" src="https://mathcontestrepository.github.io/elite-ad.gif"></a>
+</div>
+			{% endif %}
+	</div>
+	</div>
 	      <br><div style="padding: 12px; background:{% if current_user.is_authenticated and current_user.darkmode == 1%} #535563 {% else %} #fff9cf {% endif %}">
 <a style="text-decoration: underline; font-size: 18px" href="/report">
 <span style="font-size: 18px" class="material-symbols-outlined">
