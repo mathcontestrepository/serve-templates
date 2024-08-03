@@ -253,6 +253,7 @@ Thanks for keeping the Math Contest Repository a clean and safe environment!</sm
     <a href="/login" class="signup-button">Log In</a>
   </div>
 	</div>
+	{% if not current_user.is_authenticated %}
 	    <div class="cookie-notice">
         <p style="width: 82%"><b>Join the MCR:</b> Sign up or log in to check your answers. Access 1300+ problems from UWaterloo, MAA, & more, participate in our weekly challenges, and take part in our monthly contests to compete with nearly 250 others.</p>
         
@@ -265,5 +266,6 @@ Thanks for keeping the Math Contest Repository a clean and safe environment!</sm
             document.querySelector('.cookie-notice').style.display = 'none';
         });
     </script>
+	{% endif %}
 </body>
 </html>
