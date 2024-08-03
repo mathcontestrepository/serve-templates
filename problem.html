@@ -33,6 +33,49 @@
 <link rel="icon" href="https://mathcontestrepository.github.io/whitelogo.png">
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 	<style>
+		    /* Cookie Notice Styling */
+.cookie-notice {
+  background-color: #333;
+  color: white;
+  padding: 15px;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.cookie-notice p {
+  margin: 0;
+  font-size: 16px;
+}
+
+.cookie-notice a {
+  color: #ff6b81;
+  text-decoration: none;
+  transition: color 0.3s ease-in-out;
+}
+
+.cookie-notice a:hover {
+  color: #e74c3c;
+}
+
+.cookie-notice button {
+  background-color: #e74c3c;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.cookie-notice button:hover {
+  background-color: #ff6b81;
+}
 .material-symbols-outlined {
   font-variation-settings:
   'FILL' 0,
@@ -210,5 +253,17 @@ Thanks for keeping the Math Contest Repository a clean and safe environment!</sm
     <a href="/login" class="signup-button">Log In</a>
   </div>
 	</div>
+	    <div class="cookie-notice">
+        <p style="width: 82%"><b>Join the MCR:</b> Sign up or log in to check your answers. Access 1300+ problems from UWaterloo, MAA, & more, participate in our weekly challenges, and take part in our monthly contests to compete with nearly 250 others.</p>
+        
+        <button onclick="window.location.href='/signup'">Sign Up</button>
+        <button onclick="window.location.href='/login'">Log In</button>
+    </div>
+
+    <script>
+        document.getElementById('accept-cookies').addEventListener('click', function() {
+            document.querySelector('.cookie-notice').style.display = 'none';
+        });
+    </script>
 </body>
 </html>
