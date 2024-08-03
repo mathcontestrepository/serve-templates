@@ -190,15 +190,17 @@
 {% endif %}
 	  </div>
 		<div style="display:flex">
-		<div style="width: 68%">
+		<div {% if not current_user.is_authenticated or current_user.elite == 0 %}style="width: 68%" {% endif %}>
 		{% autoescape false %}
           <p>{{problem.body}}</p>
 		  {%endautoescape%}
 		</div>
+			{% if not current_user.is_authenticated or current_user.elite == 0 %}
 		<div style="text-align: center; width: 32%" class="ads">
 <p>Advertisement</p>
 <a href="/elite"><img style="width: 100%" src="https://mathcontestrepository.github.io/elite-ad.gif"></a>
 </div>
+			{% endif %}
 	</div>
         </div>
         <div class="answer-form">
