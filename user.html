@@ -171,7 +171,7 @@
       <h1>{{user.username}}
       {% if verified %}
       <div class="badge">
-            <span class="material-symbols-outlined">check_circle</span>
+            <span {% if current_user.is_authenticated and current_user.darkmode == 1 %} style="color: #fff" {% endif %} class="material-symbols-outlined">check_circle</span>
             <div class="tooltip">This account is verified.</div>
           </div>
       {% endif %}</h1>
