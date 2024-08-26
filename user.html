@@ -196,8 +196,8 @@
 	<li>Skill level of {{user.best}}.</li>
 	<li>{{user.score}} total points.</li>
 	<li>Solved {{per}}% of MCR problems.</li>
+	{% if author_count > 0 %}<li>{{user.username}} has uploaded {author_count}} problems to the MCR.</li> {% endif %}
       </ul>
-	{% if author_count > 0 %}<p>{{user.username}} has uploaded <a href="/user/{{user.username}}/authored">{{author_count}} problems</a> to the Math Contest Repository.</p> {% endif %}
       <p>{{user.username}} has written {{user.contests}} live contests on the Math Contest Repository.</p>
 	      <!-- The dropdown container -->
 <div class="dropdown" id="myDropdown">
