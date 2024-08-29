@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+	<script src="https://js.hcaptcha.com/1/api.js" async defer></script>
 	<!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-BDF78N63FS"></script>
 <script>
@@ -94,7 +95,7 @@
       <label for="confirm-password">Confirm Password:</label>
       <input type="password" id="confirm-password" name="confirm-password" placeholder="Confirm your password" required>
     </div>
-	  {{ hcaptcha }}
+	  <div class="h-captcha" data-sitekey="b7ae44e2-0ad6-453c-9776-9980034a558e"></div>
     <button type="submit">Sign Up</button>
     <p>By signing up, you agree to abide by our <a href="/legal/terms">Terms of Service</a> at all times and agree to our use of your data as outlined in our <a href="/legal/privacy">Privacy Policy</a>.</p>
   </form>
