@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Character Limit Textarea</title>
+    <link rel="stylesheet" href="https://mathcontestrepository.github.io/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito&display=swap" rel="stylesheet">
+<style>
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.container1 {
+    text-align: center;
+}
+
+textarea {
+    font-family: 'Nunito', sans-serif;
+    width: 300px;
+    height: 100px;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+#char-count {
+    margin-top: 10px;
+    font-size: 14px;
+    color: #555;
+}
+</style>
+</head>
+<body>
+    <div class="container1">
+    <h1><i>MCR</i>Status</h1>
+    <a href="/user/{{current_user.username}}">Back to Profile</a><br>
+        <b>A sentence or two to represent your current thoughts<br>with people that visit your MCR profile.</b><br>
+        <form action="/change-status" method="post">
+        <textarea name="bio" id="text-input" maxlength="64" placeholder="Type your status...">{{current_user.bio}}</textarea>
+        <div id="char-count">64 characters remaining</div><br>
+        <button type="submit">Save Status</button>
+        </form>
+    </div>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const textarea = document.getElementById('text-input');
+    const charCount = document.getElementById('char-count');
+    const maxChars = 64;
+
+    function updateCharCount() {
+        const remaining = maxChars - textarea.value.length;
+        charCount.textContent = `${remaining} characters remaining`;
+    }
+
+    textarea.addEventListener('input', updateCharCount);
+
+    // Initialize the character count on page load
+    updateCharCount();
+});
+</script>
+</body>
+</html>
