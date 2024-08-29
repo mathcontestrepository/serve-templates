@@ -182,8 +182,8 @@
 	    <a href="/darkmode">Toggle Dark Mode ({% if current_user.darkmode==1 %}On{%else%}Off{%endif%})</a><br>
 	{% endif %}
       <div style="line-height:1.4">
-	<a href="/submissions?by={{user.username}}">View Submissions</a>
-	      <p>{{user.bio}}</p>
+	<a href="/submissions?by={{user.username}}">View Submissions</a><br>
+	      <div class="thought-bubble">{{user.bio}}</div>
 	<h3>Rating: <span {% if user.rating != 0 %} style="color:  {% if user.rating > 0 and user.rating < 1000 %} #9ca39b {% elif user.rating < 1200 %} #2ec912 {% elif user.rating < 1400 %} #1454b5 {% elif user.rating < 1600 %} #5b1886 {% elif user.rating < 1800 %} #c4bf16 {% elif user.rating < 2000 %} #c43616 {% elif user.rating >= 2000 %} #541203 {% endif %}" {% endif %}>{{user.rating}}</span></h3>
       <h3>Max Rating: <span {% if user.max_rating != 0 %} style="color:  {% if user.max_rating > 0 and user.max_rating < 1000 %} #9ca39b {% elif user.max_rating < 1200 %} #2ec912 {% elif user.max_rating < 1400 %} #1454b5 {% elif user.max_rating < 1600 %} #5b1886 {% elif user.max_rating < 1800 %} #c4bf16 {% elif user.max_rating < 2000 %} #c43616 {% elif user.max_rating >= 2000 %} #541203 {% endif %}" {% endif %}>{{user.max_rating}}</span></h3>
 	      <h4>Rank by points: #{{rank}}</h4>
