@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+	<script src="https://js.hcaptcha.com/1/api.js" async defer></script>
 	<!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-BDF78N63FS"></script>
 <script>
@@ -86,7 +87,7 @@
       <label for="password">Password:</label>
       <input type="password" id="password" name="password" placeholder="Enter your password" required>
     </div>
-	  {{ hcaptcha }}
+	  <div class="h-captcha" data-sitekey="b7ae44e2-0ad6-453c-9776-9980034a558e"></div>
     <button type="submit">Login</button>
   </form>
 </div>
