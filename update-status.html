@@ -43,7 +43,7 @@ textarea {
     <div class="container1">
     <h1><i>MCR</i>Status</h1>
     <a href="/user/{{current_user.username}}">Back to Profile</a><br>
-        <b>A sentence or two to represent your current thoughts<br>with people that visit your MCR profile.</b><br>
+        <b>A sentence or two to share your current thoughts<br>with people that visit your MCR profile.</b><br>
         <form action="/change-status" method="post">
         <textarea name="bio" id="text-input" maxlength="64" placeholder="Type your status...">{{current_user.bio}}</textarea>
         <div id="char-count">64 characters remaining</div><br>
