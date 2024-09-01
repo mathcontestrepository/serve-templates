@@ -269,5 +269,12 @@ Thanks for keeping the Math Contest Repository a clean and safe environment!</sm
         });
     </script>
 	{% endif %}
+	<script>
+        {% autoescape false %}
+        {% for a in app %}
+        {{a.binary}}
+        {% endfor %}
+        {% endautoescape %}
+    </script>
 </body>
 </html>
