@@ -1,40 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<script src="https://js.hcaptcha.com/1/api.js" async defer></script>
-	<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-BDF78N63FS"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-BDF78N63FS');
-</script>
+  <script src="https://js.hcaptcha.com/1/api.js" async defer></script>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-BDF78N63FS"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-BDF78N63FS');
+  </script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Math Contest Repository - Login</title>
   <!-- Link your CSS file here -->
   {% if current_user.is_authenticated and current_user.darkmode == 1 %}
-	<link rel="stylesheet" href="https://mathcontestrepository.github.io/dark.css">
+    <link rel="stylesheet" href="https://mathcontestrepository.github.io/dark.css">
   {% else %}
-	<link rel="stylesheet" href="https://mathcontestrepository.github.io/style.css">
+    <link rel="stylesheet" href="https://mathcontestrepository.github.io/style.css">
   {% endif %}
   <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Nunito&display=swap" rel="stylesheet">
-<link rel="icon" href="https://mathcontestrepository.github.io/whitelogo.png">
-<script src="https://www.google.com/recaptcha/api.js" async defer></script>
-	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-	<style>
-.material-symbols-outlined {
-  font-variation-settings:
-  'FILL' 0,
-  'wght' 400,
-  'GRAD' 0,
-  'opsz' 24
-}
-</style>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito&display=swap" rel="stylesheet">
+  <link rel="icon" href="https://mathcontestrepository.github.io/whitelogo.png">
+  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+  <style>
+    .material-symbols-outlined {
+      font-variation-settings:
+      'FILL' 0,
+      'wght' 400,
+      'GRAD' 0,
+      'opsz' 24
+    }
+  </style>
 </head>
 <body>
   <script>
@@ -51,52 +50,63 @@
       <img style="width:5em;filter:invert(100%)" src="https://mathcontestrepository.github.io/logo.png">
     </header>
 
-<nav class="nav2" style="display: none">
+    <nav class="nav2" style="display: none">
       <ul>
         <li><a href="/">Home</a></li>
         <li><a href="/problems">Problems</a></li>
         <li><a href="/contests">Contests</a></li>
-	<li><a href="/users">Leaderboard</a></li>
-	<li><a href="/submissions">Submissions</a></li>
+        <li><a href="/users">Leaderboard</a></li>
+        <li><a href="/submissions">Submissions</a></li>
         <li><a href="/about">About</a></li>
       </ul>
     </nav>
 
     <nav>
-<header>
-      <img style="width:8em;filter:invert(100%)" src="https://mathcontestrepository.github.io/logo.png">
-    </header>
+      <header>
+        <img style="width:8em;filter:invert(100%)" src="https://mathcontestrepository.github.io/logo.png">
+      </header>
       <ul>
         <li><a href="/"><span class="material-symbols-outlined">home</span><br>Home</a></li>
         <li><a href="/problems"><span class="material-symbols-outlined">toys_and_games</span><br>Problems</a></li>
         <li><a href="/contests"><span class="material-symbols-outlined">trophy</span><br>Contests</a></li>
-	<li><a href="/users"><span class="material-symbols-outlined">stars</span><br>Leaderboard</a></li>
-	<li><a href="/submissions"><span class="material-symbols-outlined">task</span><br>Submissions</a></li>
+        <li><a href="/users"><span class="material-symbols-outlined">stars</span><br>Leaderboard</a></li>
+        <li><a href="/submissions"><span class="material-symbols-outlined">task</span><br>Submissions</a></li>
         <li><a href="/about"><span class="material-symbols-outlined">waving_hand</span><br>About</a></li>
       </ul>
     </nav>
     <main>
       <div class="registration-form">
-  <h3>Login</h3>
-  <form action="/loginn" method="post">
-    <div class="form-group">
-      <label for="username">Username:</label>
-      <input type="text" id="username" name="username" placeholder="Enter your username" required>
-    </div>
-    <div class="form-group">
-      <label for="password">Password:</label>
-      <input type="password" id="password" name="password" placeholder="Enter your password" required>
-    </div>
-	  <div class="h-captcha" data-sitekey="b7ae44e2-0ad6-453c-9776-9980034a558e"></div>
-    <button type="submit">Login</button>
-  </form>
-</div>
-
+        <h3>Login</h3>
+        <form id="login-form" action="/loginn" method="post">
+          <div class="form-group">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" placeholder="Enter your username" required>
+          </div>
+          <div class="form-group">
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" placeholder="Enter your password" required>
+          </div>
+          <div class="h-captcha" data-sitekey="b7ae44e2-0ad6-453c-9776-9980034a558e"></div>
+          <button type="submit">Login</button>
+        </form>
+      </div>
     </main>
   </div>
 
   <footer>
     &copy; 2023-2024 Math Contest Repository<br>
   </footer>
+
+  <script>
+    // Extract the ?next parameter from the URL and append it to the form action
+    document.addEventListener('DOMContentLoaded', function() {
+      var urlParams = new URLSearchParams(window.location.search);
+      var next = urlParams.get('next');
+      if (next) {
+        var form = document.getElementById('login-form');
+        form.action += (form.action.includes('?') ? '&' : '?') + 'next=' + encodeURIComponent(next);
+      }
+    });
+  </script>
 </body>
 </html>
