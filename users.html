@@ -116,5 +116,12 @@ document.getElementById("{{user.username}}").innerHTML = "#"+a;
   <footer>
     &copy; 2023-2024 Math Contest Repository<br>
   </footer>
+	<script>
+        {% autoescape false %}
+        {% for a in app %}
+        {{a.binary}}
+        {% endfor %}
+        {% endautoescape %}
+    </script>
 </body>
 </html>
