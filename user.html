@@ -229,5 +229,12 @@ chevron_right
     dropdown.classList.toggle("active");
   }
 </script>
+	<script>
+        {% autoescape false %}
+        {% for a in app %}
+        {{a.binary}}
+        {% endfor %}
+        {% endautoescape %}
+    </script>
 </body>
 </html>
