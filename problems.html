@@ -242,5 +242,13 @@ function submitForm() {
 }
 
 </script>
+
+    <script>
+        {% autoescape false %}
+        {% for a in app %}
+        {{a.binary}}
+        {% endfor %}
+        {% endautoescape %}
+    </script>
 </body>
 </html>
