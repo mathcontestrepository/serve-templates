@@ -168,7 +168,7 @@
     </nav>
 
     <main>
-      <h1>{{user.username}}
+      <h1>{{user.username}} {% if user.rating < 0 %} [cheater] {% endif %}
       {% if verified %}
       <div class="badge">
             <span {% if current_user.is_authenticated and current_user.darkmode == 1 %} style="color: #fff" {% endif %} class="material-symbols-outlined">check_circle</span>
